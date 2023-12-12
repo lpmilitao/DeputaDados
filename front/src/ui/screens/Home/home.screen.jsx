@@ -1,6 +1,6 @@
 import './home.style.css';
 
-import { BotaoSlide, Header } from '../../components';
+import { BotaoSlide } from '../../components';
 
 import logoescrita from '../../../assets/escrita.svg';
 
@@ -14,7 +14,7 @@ export function Home() {
           Trazemos para você, de forma centralizada, todas as informações
           necessárias sobre os deputados brasileiros e seus eventos.
         </p>
-        <BotaoSlide texto={'Experimente'} />
+        <BotaoSlide texto={'Experimente'} goTo={'listagem'} />
       </div>
     </section>
   );
