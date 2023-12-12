@@ -1,5 +1,31 @@
 .home {
   width: 100%;
   height: 100vh;
-  background-color: var(--branco);
+  background-color: var(--azul);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home > div {
+  width: 80%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+.home img {
+  width: 50%;
+}
+
+.home p {
+  color: var(--branco);
+  font-size: 1.2em;
+  display: block;
+  max-width: 40%;
+  text-align: center;
+  letter-spacing: 0.5px;
+  font-weight: 500;
 }

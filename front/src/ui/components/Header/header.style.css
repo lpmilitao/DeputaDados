@@ -8,8 +8,15 @@
   box-shadow: 5px 1px 10px 5px var(--preto-translucido);
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
+  gap: 1em;
 }
 
 .header > img {
-  max-height: 100%;
+  max-height: 70%;
+}
+
+.header > h3 {
+  color: var(--branco);
+  font-size: 1.7em;
+  font-weight: 500;
 }
