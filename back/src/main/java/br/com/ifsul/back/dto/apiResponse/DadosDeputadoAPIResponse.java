@@ -4,7 +4,7 @@ import lombok.*;
 
 @Builder @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter
-public class DadosAPIResponse {
+public class DadosDeputadoAPIResponse {
 
     private String email;
 

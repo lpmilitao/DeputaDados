@@ -1,34 +1,14 @@
 package br.com.ifsul.back.dto.apiResponse;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
-@Builder
+@Builder @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter
 public class EventoAPIResponse {
 
-    private String dataHoraFim;
+    private List<DadosEventoAPIResponse> dados;
 
-    private String dataHoraInicio;
-
-    private String descricao;
-
-    private String descricaoTipo;
-
-    private long id;
-
-    private LocalCamaraAPIResponse localCamara;
-
-    private String localExterno;
-
-    private List<OrgaoAPIResponse> orgaos;
-
-    private String situacao;
-
-    private String uri;
-
-    private String urlRegistro;
+    private List<LinksAPIResponse> links;
 }

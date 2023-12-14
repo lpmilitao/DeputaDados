@@ -8,7 +8,7 @@ import java.util.List;
 @Getter @Setter
 public class DeputadoAPIResponse {
 
-    private List<DadosAPIResponse> dados;
+    private List<DadosDeputadoAPIResponse> dados;
 
     private List<LinksAPIResponse> links;
 }
