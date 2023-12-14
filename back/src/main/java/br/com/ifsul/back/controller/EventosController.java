@@ -1,11 +1,10 @@
 package br.com.ifsul.back.controller;
 
+import br.com.ifsul.back.dto.request.EventoRequest;
 import br.com.ifsul.back.dto.response.EventoResponse;
 import br.com.ifsul.back.service.EventoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +23,11 @@ public class EventosController {
     @GetMapping
     public List<EventoResponse> listarEventos(){
         return eventoService.listar();
+    }
+
+    @PutMapping("/{id}")
+    public void editarEvento(@PathVariable long id, @RequestBody EventoRequest request){
+        eventoService.editar(id, request);
     }
 
 }
