@@ -30,4 +30,8 @@ public class EventosController {
         eventoService.editar(id, request);
     }
 
+    @DeleteMapping("/{id}")
+    public void deletarEvento(@PathVariable long id){
+        eventoService.excluir(id);
+    }
 }

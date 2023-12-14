@@ -65,4 +65,8 @@ public class EventoService {
 
         eventoRepository.save(evento);
     }
+
+    public void excluir(long id) {
+        eventoRepository.deleteById(id);
+    }
 }
