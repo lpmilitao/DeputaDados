@@ -31,4 +31,8 @@ public class Evento {
 
     @ManyToMany(mappedBy = "eventos")
     private List<Deputado> deputados = new ArrayList<>();
+
+    public void adicionarDeputado(Deputado deputado){
+        deputados.add(deputado);
+    }
 }

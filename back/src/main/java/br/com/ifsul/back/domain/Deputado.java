@@ -28,4 +28,8 @@ public class Deputado {
             joinColumns = @JoinColumn(name = "deputado_id"),
             inverseJoinColumns = @JoinColumn(name = "evento_id"))
     private List<Evento> eventos = new ArrayList<>();
+
+    public void adicionarEvento(Evento evento){
+        eventos.add(evento);
+    }
 }
