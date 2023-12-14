@@ -3,6 +3,7 @@ package br.com.ifsul.back.service;
 import br.com.ifsul.back.domain.Evento;
 import br.com.ifsul.back.dto.apiResponse.EventoAPIResponse;
 import br.com.ifsul.back.dto.mapper.EventoMapper;
+import br.com.ifsul.back.dto.response.EventoResponse;
 import br.com.ifsul.back.repository.EventoRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +44,11 @@ public class EventoService {
         List<Evento> eventos = response.getDados().stream().map(EventoMapper::toEntity).toList();
 
         eventoRepository.saveAll(eventos);
+    }
+
+    public List<EventoResponse> listar() {
+        return eventoRepository.findAll().stream()
+                .map(EventoMapper::toResponse)
+                .toList();
     }
 }
