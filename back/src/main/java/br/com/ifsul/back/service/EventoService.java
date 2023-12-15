@@ -1,10 +1,12 @@
 package br.com.ifsul.back.service;
 
+import br.com.ifsul.back.domain.Deputado;
 import br.com.ifsul.back.domain.Evento;
 import br.com.ifsul.back.dto.apiResponse.EventoAPIResponse;
 import br.com.ifsul.back.dto.mapper.EventoMapper;
 import br.com.ifsul.back.dto.request.EventoRequest;
 import br.com.ifsul.back.dto.response.EventoResponse;
+import br.com.ifsul.back.repository.DeputadoRepository;
 import br.com.ifsul.back.repository.EventoRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class EventoService {
 
     @Autowired
     private EventoRepository eventoRepository;
+
+    @Autowired
+    private DeputadoRepository deputadoRepository;
 
     @Transactional
     public void copiarDadosDaApi() {
@@ -68,5 +73,15 @@ public class EventoService {
 
     public void excluir(long id) {
         eventoRepository.deleteById(id);
+    }
+
+    public List<EventoResponse> listarPorDeputado(long deputadoId) {
+        Deputado deputado = deputadoRepository.findById(deputadoId)
+                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Deputado não encontrado."));
+
+        return eventoRepository.findAll().stream()
+                .filter(evento -> evento.getDeputados().contains(deputado))
+                .map(EventoMapper::toResponse)
+                .toList();
     }
 }

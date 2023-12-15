@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/eventos")
+@CrossOrigin(origins = "*")
 public class EventosController {
 
     @Autowired
@@ -33,5 +34,10 @@ public class EventosController {
     @DeleteMapping("/{id}")
     public void deletarEvento(@PathVariable long id){
         eventoService.excluir(id);
+    }
+
+    @GetMapping("/{deputadoId}")
+    public List<EventoResponse> listarEventosPorDeputado(@PathVariable long deputadoId){
+        return eventoService.listarPorDeputado(deputadoId);
     }
 }
