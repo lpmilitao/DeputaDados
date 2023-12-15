@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Home, Listagem } from '../ui/screens';
+import { Detalhe, Home, Listagem } from '../ui/screens';
 
 export const router = createBrowserRouter([
   {
@@ -9,5 +9,9 @@ export const router = createBrowserRouter([
   {
     path: '/listagem',
     element: <Listagem />,
+  },
+  {
+    path: '/deputado/:deputadoId',
+    element: <Detalhe />,
   },
 ]);

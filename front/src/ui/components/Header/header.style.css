@@ -9,6 +9,10 @@
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
   gap: 1em;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .header > img {

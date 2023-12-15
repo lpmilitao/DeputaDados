@@ -2,7 +2,7 @@ import './home.style.css';
 
 import { BotaoSlide } from '../../components';
 
-import logoescrita from '../../../assets/escrita.svg';
+import logoescrita from '../../../assets/Deputadados.svg';
 
 export function Home() {
   return (
