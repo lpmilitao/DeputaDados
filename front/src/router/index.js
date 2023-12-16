@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Detalhe, Home, Listagem } from '../ui/screens';
+import { Detalhe, EventosDeputado, Home, Listagem } from '../ui/screens';
 
 export const router = createBrowserRouter([
   {
@@ -13,5 +13,9 @@ export const router = createBrowserRouter([
   {
     path: '/deputado/:deputadoId',
     element: <Detalhe />,
+  },
+  {
+    path: '/deputado/:deputadoId/eventos',
+    element: <EventosDeputado />,
   },
 ]);

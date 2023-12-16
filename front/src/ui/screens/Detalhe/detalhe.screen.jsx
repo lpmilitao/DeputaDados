@@ -2,13 +2,14 @@ import { useEffect } from 'react';
 import { useDetalharDeputado } from '../../../hooks/deputados/detalharDeputado.hook';
 import './detalhe.style.css';
 
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { Header } from '../../components';
 
 export function Detalhe() {
   const { deputadoId } = useParams();
   const { deputado, isLoading, buscar } = useDetalharDeputado();
+  const navigate = useNavigate();
 
   useEffect(() => {
     buscar(deputadoId);
@@ -26,8 +27,10 @@ export function Detalhe() {
           <span className='uf'>{deputado.siglaUf}</span>
           <span>{deputado.siglaPartido}</span>
         </div>
-        <button>Ver Eventos</button>
-        <button className='azul'>Inscrever em evento</button>
+        <button onClick={() => navigate('eventos')}>Ver Eventos</button>
+        <button onClick={() => navigate('/eventos')} className='azul'>
+          Inscrever em evento
+        </button>
       </section>
     </>
   ) : null;

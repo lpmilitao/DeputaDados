@@ -1,0 +1,74 @@
+.botaoAcao-excluir,
+.botaoAcao-editar {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  margin: 0 1em;
+  background: #e62222;
+}
+.botaoAcao-editar {
+  background: var(--azul);
+}
+
+.botaoAcao-excluir,
+.botaoAcao-excluir span,
+.botaoAcao-editar,
+.botaoAcao-editar span {
+  transition: 200ms;
+}
+
+.botaoAcao-excluir .text,
+.botaoAcao-editar .text {
+  transform: translateX(35px);
+  color: white;
+  font-weight: bold;
+}
+
+.botaoAcao-excluir .icon,
+.botaoAcao-editar .icon {
+  position: absolute;
+  border-left: 1px solid #c41b1b;
+  transform: translateX(110px);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botaoAcao-editar .icon {
+  border-left: 1px solid #00339a;
+}
+
+.botaoAcao-excluir svg,
+.botaoAcao-editar svg {
+  width: 15px;
+  fill: #eee;
+}
+
+.botaoAcao-excluir:hover .text,
+.botaoAcao-editar:hover .text {
+  color: transparent;
+}
+
+.botaoAcao-excluir:hover .icon,
+.botaoAcao-editar:hover .icon {
+  width: 150px;
+  border-left: none;
+  transform: translateX(0);
+}
+
+.botaoAcao-excluir:focus,
+.botaoAcao-editar:focus {
+  outline: none;
+}
+
+.botaoAcao-excluir:active .icon svg,
+.botaoAcao-editar:active .icon svg {
+  transform: scale(0.8);
+}

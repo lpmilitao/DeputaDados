@@ -22,7 +22,7 @@ export function Listagem() {
     <section>
       <ToastContainer />
       <Header at={'Listagem'} />
-      <div className='lista-container'>
+      <div className='lista-container deputado-container'>
         {!isLoading
           ? deputados.map((deputado) => {
               return (
