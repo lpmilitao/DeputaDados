@@ -75,6 +75,10 @@ public class DeputadoService {
         Deputado deputado = deputadoRepository.findById(deputadoId)
                 .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Deputado não encontrado."));
 
+        if (deputado.getEventos().contains(evento)){
+            return;
+        }
+
         evento.adicionarDeputado(deputado);
         deputado.adicionarEvento(evento);
 

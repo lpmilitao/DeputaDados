@@ -14,7 +14,7 @@ export function Home() {
           Trazemos para você, de forma centralizada, todas as informações
           necessárias sobre os deputados brasileiros e seus eventos.
         </p>
-        <BotaoSlide texto={'Experimente'} goTo={'listagem'} />
+        <BotaoSlide texto={'Experimente'} goTo={'deputados'} />
       </div>
     </section>
   );

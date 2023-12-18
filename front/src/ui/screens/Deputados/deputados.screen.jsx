@@ -1,4 +1,4 @@
-import './listagem.style.css';
+import './deputados.style.css';
 
 import { Header } from '../../components';
 import { useListarDeputados } from '../../../hooks/deputados/listarDeputados.hook';
@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-export function Listagem() {
+export function Deputados() {
   const { deputados, isLoading, listar } = useListarDeputados();
   const navigate = useNavigate();
 
@@ -15,13 +15,13 @@ export function Listagem() {
   }, []);
 
   function irParaDetalhe(id) {
-    navigate(`/deputado/${id}`);
+    navigate(`/deputados/${id}`);
   }
 
   return (
     <section>
       <ToastContainer />
-      <Header at={'Listagem'} />
+      <Header at={'Deputados'} />
       <div className='lista-container deputado-container'>
         {!isLoading
           ? deputados.map((deputado) => {

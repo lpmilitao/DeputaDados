@@ -28,3 +28,11 @@ li {
   background-color: var(--branco);
   overflow-y: scroll;
 }
+
+.direita {
+  margin-left: auto;
+}
+
+.esquerda {
+  margin-right: auto;
+}

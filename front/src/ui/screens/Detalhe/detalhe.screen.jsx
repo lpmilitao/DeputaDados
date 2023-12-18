@@ -28,7 +28,10 @@ export function Detalhe() {
           <span>{deputado.siglaPartido}</span>
         </div>
         <button onClick={() => navigate('eventos')}>Ver Eventos</button>
-        <button onClick={() => navigate('/eventos')} className='azul'>
+        <button
+          onClick={() => navigate(`/eventos/${deputadoId}`)}
+          className='azul'
+        >
           Inscrever em evento
         </button>
       </section>

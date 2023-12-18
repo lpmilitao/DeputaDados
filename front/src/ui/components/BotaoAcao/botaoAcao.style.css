@@ -1,5 +1,6 @@
 .botaoAcao-excluir,
 .botaoAcao-editar,
+.botaoAcao-inscrever,
 .botaoAcao-desinscrever {
   width: 150px;
   height: 50px;
@@ -13,11 +14,12 @@
   background: #e62222;
   text-transform: capitalize;
 }
-.botaoAcao-editar {
+.botaoAcao-inscrever,
+.botaoAcao-desinscrever {
   background: var(--azul);
 }
 
-.botaoAcao-desinscrever {
+.botaoAcao-editar {
   background-color: var(--amarelo);
 }
 
@@ -25,6 +27,8 @@
 .botaoAcao-excluir span,
 .botaoAcao-editar,
 .botaoAcao-editar span,
+.botaoAcao-inscrever,
+.botaoAcao-inscrever span,
 .botaoAcao-desinscrever,
 .botaoAcao-desinscrever span {
   transition: 200ms;
@@ -32,6 +36,7 @@
 
 .botaoAcao-excluir .text,
 .botaoAcao-editar .text,
+.botaoAcao-inscrever .text,
 .botaoAcao-desinscrever .text {
   transform: translateX(35px);
   color: white;
@@ -39,12 +44,14 @@
   font-size: 1.15em;
 }
 
+.botaoAcao-inscrever .text,
 .botaoAcao-desinscrever .text {
   transform: translateX(5px);
 }
 
 .botaoAcao-excluir .icon,
 .botaoAcao-editar .icon,
+.botaoAcao-inscrever .icon,
 .botaoAcao-desinscrever .icon {
   position: absolute;
   border-left: 1px solid #c41b1b;
@@ -56,16 +63,19 @@
   justify-content: center;
 }
 
-.botaoAcao-editar .icon {
-  border-left: 1px solid #00339a;
+.botaoAcao-inscrever .icon {
+  border-left: 1px solid #c1b01b;
 }
 
-.botaoAcao-desinscrever .icon {
-  border-left: 1px solid #c1b01b;
+.botaoAcao-editar .icon,
+.botaoAcao-desinscrever .icon,
+.botaoAcao-inscrever .icon {
+  border-left: 1px solid #00339a;
 }
 
 .botaoAcao-excluir svg,
 .botaoAcao-editar svg,
+.botaoAcao-inscrever svg,
 .botaoAcao-desinscrever svg {
   width: 15px;
   fill: var(--branco);
@@ -73,12 +83,14 @@
 
 .botaoAcao-excluir:hover .text,
 .botaoAcao-editar:hover .text,
+.botaoAcao-inscrever:hover .text,
 .botaoAcao-desinscrever:hover .text {
   color: transparent;
 }
 
 .botaoAcao-excluir:hover .icon,
 .botaoAcao-editar:hover .icon,
+.botaoAcao-inscrever:hover .icon,
 .botaoAcao-desinscrever:hover .icon {
   width: 150px;
   border-left: none;
@@ -87,12 +99,14 @@
 
 .botaoAcao-excluir:focus,
 .botaoAcao-editar:focus,
+.botaoAcao-inscrever:focus,
 .botaoAcao-desinscrever:focus {
   outline: none;
 }
 
 .botaoAcao-excluir:active .icon svg,
 .botaoAcao-editar:active .icon svg,
+.botaoAcao-inscrever:active .icon svg,
 .botaoAcao-desinscrever:active .icon svg {
   transform: scale(0.8);
 }

@@ -12,11 +12,12 @@ import { BotaoAcao, Header } from '../../components';
 export function EventosDeputado() {
   const { deputadoId } = useParams();
   const { eventos, isLoadingL, buscarPorDeputado, buscar } = useListarEventos();
-  const { isLoadingA, desinscreverDeputado, excluir } = useAcoesEventos();
+  const { isLoadingA, desinscreverDeputado, excluir, reload } =
+    useAcoesEventos();
 
   useEffect(() => {
     buscarPorDeputado(deputadoId);
-  }, []);
+  }, [reload]);
 
   return !isLoadingL || !isLoadingA ? (
     <>
