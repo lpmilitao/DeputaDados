@@ -32,4 +32,8 @@ public class Deputado {
     public void adicionarEvento(Evento evento){
         eventos.add(evento);
     }
+
+    public void removerEvento(Evento evento){
+        eventos.remove(evento);
+    }
 }

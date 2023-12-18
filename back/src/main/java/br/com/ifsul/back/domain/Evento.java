@@ -35,4 +35,8 @@ public class Evento {
     public void adicionarDeputado(Deputado deputado){
         deputados.add(deputado);
     }
+
+    public void removerDeputado(Deputado deputado){
+        deputados.remove(deputado);
+    }
 }

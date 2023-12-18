@@ -7,6 +7,4 @@ import lombok.Setter;
 public class EventoRequest {
 
     private String nome;
-
-    private String descricao;
 }

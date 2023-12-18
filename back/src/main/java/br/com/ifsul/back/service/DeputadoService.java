@@ -81,4 +81,18 @@ public class DeputadoService {
         eventoRepository.save(evento);
         deputadoRepository.save(deputado);
     }
+
+    public void desinscrever(long deputadoId, long eventoId) {
+        Evento evento = eventoRepository.findById(eventoId)
+                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Evento não encontrado."));
+
+        Deputado deputado = deputadoRepository.findById(deputadoId)
+                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Deputado não encontrado."));
+
+        evento.removerDeputado(deputado);
+        deputado.removerEvento(evento);
+
+        eventoRepository.save(evento);
+        deputadoRepository.save(deputado);
+    }
 }

@@ -12,6 +12,7 @@
   --branco: #eeeeee;
   --preto: #303030;
   --preto-translucido: #30303050;
+  --primary: var(--azul);
 }
 
 li {
@@ -25,4 +26,5 @@ li {
   display: flex;
   flex-direction: column;
   background-color: var(--branco);
+  overflow-y: scroll;
 }

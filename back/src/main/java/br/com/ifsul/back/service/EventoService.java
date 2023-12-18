@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
@@ -66,13 +67,22 @@ public class EventoService {
                 .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Evento não encontrado."));
 
         evento.setNome(request.getNome());
-        evento.setDescricao(request.getDescricao());
 
         eventoRepository.save(evento);
     }
 
     public void excluir(long id) {
-        eventoRepository.deleteById(id);
+        Evento evento = eventoRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Evento não encontrado."));
+
+        evento.getDeputados().forEach(deputado -> {
+            deputado.removerEvento(evento);
+            deputadoRepository.save(deputado);
+        });
+
+        evento.setDeputados(new ArrayList<>());
+        eventoRepository.save(evento);
+        eventoRepository.delete(evento);
     }
 
     public List<EventoResponse> listarPorDeputado(long deputadoId) {

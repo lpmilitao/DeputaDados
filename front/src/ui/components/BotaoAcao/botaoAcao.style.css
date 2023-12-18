@@ -1,5 +1,6 @@
 .botaoAcao-excluir,
-.botaoAcao-editar {
+.botaoAcao-editar,
+.botaoAcao-desinscrever {
   width: 150px;
   height: 50px;
   cursor: pointer;
@@ -10,30 +11,44 @@
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
   margin: 0 1em;
   background: #e62222;
+  text-transform: capitalize;
 }
 .botaoAcao-editar {
   background: var(--azul);
 }
 
+.botaoAcao-desinscrever {
+  background-color: var(--amarelo);
+}
+
 .botaoAcao-excluir,
 .botaoAcao-excluir span,
 .botaoAcao-editar,
-.botaoAcao-editar span {
+.botaoAcao-editar span,
+.botaoAcao-desinscrever,
+.botaoAcao-desinscrever span {
   transition: 200ms;
 }
 
 .botaoAcao-excluir .text,
-.botaoAcao-editar .text {
+.botaoAcao-editar .text,
+.botaoAcao-desinscrever .text {
   transform: translateX(35px);
   color: white;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 1.15em;
+}
+
+.botaoAcao-desinscrever .text {
+  transform: translateX(5px);
 }
 
 .botaoAcao-excluir .icon,
-.botaoAcao-editar .icon {
+.botaoAcao-editar .icon,
+.botaoAcao-desinscrever .icon {
   position: absolute;
   border-left: 1px solid #c41b1b;
-  transform: translateX(110px);
+  transform: translateX(100px);
   height: 40px;
   width: 40px;
   display: flex;
@@ -45,30 +60,39 @@
   border-left: 1px solid #00339a;
 }
 
+.botaoAcao-desinscrever .icon {
+  border-left: 1px solid #c1b01b;
+}
+
 .botaoAcao-excluir svg,
-.botaoAcao-editar svg {
+.botaoAcao-editar svg,
+.botaoAcao-desinscrever svg {
   width: 15px;
-  fill: #eee;
+  fill: var(--branco);
 }
 
 .botaoAcao-excluir:hover .text,
-.botaoAcao-editar:hover .text {
+.botaoAcao-editar:hover .text,
+.botaoAcao-desinscrever:hover .text {
   color: transparent;
 }
 
 .botaoAcao-excluir:hover .icon,
-.botaoAcao-editar:hover .icon {
+.botaoAcao-editar:hover .icon,
+.botaoAcao-desinscrever:hover .icon {
   width: 150px;
   border-left: none;
   transform: translateX(0);
 }
 
 .botaoAcao-excluir:focus,
-.botaoAcao-editar:focus {
+.botaoAcao-editar:focus,
+.botaoAcao-desinscrever:focus {
   outline: none;
 }
 
 .botaoAcao-excluir:active .icon svg,
-.botaoAcao-editar:active .icon svg {
+.botaoAcao-editar:active .icon svg,
+.botaoAcao-desinscrever:active .icon svg {
   transform: scale(0.8);
 }

@@ -31,7 +31,12 @@ public class DeputadosController {
     }
 
     @PutMapping("/{deputadoId}/evento/{eventoId}")
-    public void inscreverDeputadoEmCurso(@PathVariable long deputadoId, @PathVariable long eventoId){
+    public void inscreverDeputadoEmEvento(@PathVariable long deputadoId, @PathVariable long eventoId){
         deputadoService.inscrever(deputadoId, eventoId);
+    }
+
+    @DeleteMapping("/{deputadoId}/evento/{eventoId}")
+    public void desinscreverDeputadoEmEvento(@PathVariable long deputadoId, @PathVariable long eventoId){
+        deputadoService.desinscrever(deputadoId, eventoId);
     }
 }

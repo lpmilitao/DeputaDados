@@ -1,21 +1,24 @@
 import './eventosDeputado.style.css';
 
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-import { BotaoAcao, Header } from '../../components';
-import { useParams } from 'react-router-dom';
 import { useListarEventos } from '../../../hooks/eventos/listarEventos.hook';
-import { useEffect } from 'react';
+import { useAcoesEventos } from '../../../hooks/eventos/acoesEventos.hook';
+
+import { BotaoAcao, Header } from '../../components';
 
 export function EventosDeputado() {
   const { deputadoId } = useParams();
-  const { eventos, isLoading, buscarPorDeputado, buscar } = useListarEventos();
+  const { eventos, isLoadingL, buscarPorDeputado, buscar } = useListarEventos();
+  const { isLoadingA, desinscreverDeputado, excluir } = useAcoesEventos();
 
   useEffect(() => {
     buscarPorDeputado(deputadoId);
   }, []);
 
-  return !isLoading ? (
+  return !isLoadingL || !isLoadingA ? (
     <>
       <Header at={'Eventos de um deputado'} />
       <ToastContainer />
@@ -23,9 +26,12 @@ export function EventosDeputado() {
         {eventos.map((evento) => {
           return (
             <div key={evento.id} className='evento-deputado'>
-              {/* <h3>{evento.nome}</h3> */}
-              <BotaoAcao acao={'excluir'} />
-              <BotaoAcao acao={'editar'} />
+              <h3>{evento.nome}</h3>
+              <BotaoAcao
+                acao={'desinscrever'}
+                onClick={() => desinscreverDeputado(deputadoId, evento.id)}
+              />
+              <BotaoAcao acao={'excluir'} onClick={() => excluir(evento.id)} />
             </div>
           );
         })}
