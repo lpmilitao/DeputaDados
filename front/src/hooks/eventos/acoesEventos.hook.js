@@ -8,9 +8,9 @@ import { editarEvento } from '../../api/eventos/editarEvento';
 
 export function useAcoesEventos() {
   const [isLoading, setLoading] = useState(false);
-  const [evento, setEvento] = useState({});
-  const [isEdit, setEdit] = useState(false);
   const [reload, setReload] = useState(false);
+  const [isEditOpen, setEditOpen] = useState(false);
+  const [eventoSelecionado, setEventoSelecionado] = useState({});
 
   async function desinscreverDeputado(deputadoId, eventoId) {
     try {
@@ -63,28 +63,41 @@ export function useAcoesEventos() {
     }
   }
 
-  async function editar(eventoId) {
+  async function editar() {
     try {
       setLoading(true);
-      await editarEvento(eventoId, evento.nome);
+      await editarEvento(
+        eventoSelecionado.id,
+        eventoSelecionado.nome,
+        eventoSelecionado.descricao
+      );
+      toast.success('Evento editado com sucesso!', {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
+      setReload(!reload);
     } catch (error) {
       toast.error('Ocorreu um erro ao editar o evento.', {
         position: toast.POSITION.BOTTOM_CENTER,
       });
     } finally {
       setLoading(false);
-      setEdit(false);
+      setEditOpen(false);
     }
   }
 
-  function editOn(eventore) {
-    setEdit(true);
-    setEvento(eventore);
+  function closeEdit() {
+    setEditOpen(false);
+    setEventoSelecionado({});
+  }
+
+  function openEdit(evento) {
+    setEditOpen(true);
+    setEventoSelecionado(evento);
   }
 
   function onChange(event) {
-    setEvento({
-      ...evento,
+    setEventoSelecionado({
+      ...eventoSelecionado,
       [event.target.name]: event.target.value,
     });
   }
@@ -95,10 +108,11 @@ export function useAcoesEventos() {
     inscreverDeputado,
     excluir,
     editar,
-    editOn,
-    onChange,
-    isEdit,
-    evento,
     reload,
+    isEditOpen,
+    closeEdit,
+    openEdit,
+    eventoSelecionado,
+    onChange,
   };
 }

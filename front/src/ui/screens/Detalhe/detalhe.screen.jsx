@@ -4,7 +4,7 @@ import './detalhe.style.css';
 
 import { useNavigate, useParams } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { Header } from '../../components';
+import { Header, Loader } from '../../components';
 
 export function Detalhe() {
   const { deputadoId } = useParams();
@@ -18,7 +18,7 @@ export function Detalhe() {
   return !isLoading ? (
     <>
       <ToastContainer />
-      <Header at={'Detalhes do deputado'} />
+      <Header at={'Detalhes do deputado'} voltar={true} />
       <section className='detalhe-container'>
         <img src={deputado.urlFoto} alt='Foto de perfil do deputado.' />
         <h1>{deputado.nome}</h1>
@@ -36,5 +36,7 @@ export function Detalhe() {
         </button>
       </section>
     </>
-  ) : null;
+  ) : (
+    <Loader />
+  );
 }

@@ -7,36 +7,69 @@ import { ToastContainer } from 'react-toastify';
 import { useListarEventos } from '../../../hooks/eventos/listarEventos.hook';
 import { useAcoesEventos } from '../../../hooks/eventos/acoesEventos.hook';
 
-import { BotaoAcao, Header } from '../../components';
+import {
+  BotaoAcao,
+  EditarEvento,
+  Header,
+  Loader,
+  Vazio,
+} from '../../components';
 
 export function EventosDeputado() {
   const { deputadoId } = useParams();
-  const { eventos, isLoadingL, buscarPorDeputado, buscar } = useListarEventos();
-  const { isLoadingA, desinscreverDeputado, excluir, reload } =
-    useAcoesEventos();
+  const { eventos, isLoadingL, buscarPorDeputado } = useListarEventos();
+  const {
+    isLoadingA,
+    desinscreverDeputado,
+    excluir,
+    editar,
+    reload,
+    isEditOpen,
+    closeEdit,
+    openEdit,
+    eventoSelecionado,
+    onChange,
+  } = useAcoesEventos();
 
   useEffect(() => {
     buscarPorDeputado(deputadoId);
   }, [reload]);
 
-  return !isLoadingL || !isLoadingA ? (
+  return !isLoadingL && !isLoadingA ? (
     <>
-      <Header at={'Eventos de um deputado'} />
+      <Header at={'Eventos de um deputado'} voltar={true} />
       <ToastContainer />
-      <section className='lista-container eventos-deputado-container'>
-        {eventos.map((evento) => {
-          return (
-            <div key={evento.id} className='evento-deputado'>
-              <h3>{evento.nome}</h3>
-              <BotaoAcao
-                acao={'desinscrever'}
-                onClick={() => desinscreverDeputado(deputadoId, evento.id)}
-              />
-              <BotaoAcao acao={'excluir'} onClick={() => excluir(evento.id)} />
-            </div>
-          );
-        })}
-      </section>
+      {eventos ? (
+        <section className='lista-container eventos-deputado-container'>
+          {eventos.map((evento) => {
+            return (
+              <div key={evento.id} className='evento-deputado'>
+                <h3>{evento.nome}</h3>
+                <BotaoAcao
+                  acao={'desinscrever'}
+                  onClick={() => desinscreverDeputado(deputadoId, evento.id)}
+                />
+                <BotaoAcao acao={'editar'} onClick={() => openEdit(evento)} />
+                <BotaoAcao
+                  acao={'excluir'}
+                  onClick={() => excluir(evento.id)}
+                />
+              </div>
+            );
+          })}
+          <EditarEvento
+            isOpen={isEditOpen}
+            onClose={closeEdit}
+            evento={eventoSelecionado}
+            onChange={onChange}
+            send={editar}
+          />
+        </section>
+      ) : (
+        <Vazio />
+      )}
     </>
-  ) : null;
+  ) : (
+    <Loader />
+  );
 }

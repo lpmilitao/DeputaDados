@@ -5,16 +5,7 @@ import { listarEventosPorDeputado } from '../../api/eventos/listarEventosPorDepu
 import { listarEventos } from '../../api/eventos/listarEventos';
 
 export function useListarEventos() {
-  const [eventos, setEventos] = useState([
-    {
-      id: 0,
-      nome: '',
-      descricao: '',
-      situacao: '',
-      dataHoraInicio: '',
-      dataHoraFim: '',
-    },
-  ]);
+  const [eventos, setEventos] = useState(null);
   const [isLoading, setLoading] = useState(false);
 
   async function buscarPorDeputado(deputadoId) {
@@ -26,6 +17,7 @@ export function useListarEventos() {
       toast.error('Ocorreu um erro ao buscar os eventos deste deputado.', {
         position: toast.POSITION.BOTTOM_CENTER,
       });
+      setEventos(null);
     } finally {
       setLoading(false);
     }
@@ -40,6 +32,7 @@ export function useListarEventos() {
       toast.error('Ocorreu um erro ao buscar os eventos.', {
         position: toast.POSITION.BOTTOM_CENTER,
       });
+      setEventos(null);
     } finally {
       setLoading(false);
     }

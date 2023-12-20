@@ -13,6 +13,7 @@
   margin: 0 1em;
   background: #e62222;
   text-transform: capitalize;
+  z-index: 1;
 }
 .botaoAcao-inscrever,
 .botaoAcao-desinscrever {
@@ -63,11 +64,10 @@
   justify-content: center;
 }
 
-.botaoAcao-inscrever .icon {
+.botaoAcao-editar .icon {
   border-left: 1px solid #c1b01b;
 }
 
-.botaoAcao-editar .icon,
 .botaoAcao-desinscrever .icon,
 .botaoAcao-inscrever .icon {
   border-left: 1px solid #00339a;

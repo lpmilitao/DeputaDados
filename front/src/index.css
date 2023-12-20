@@ -8,7 +8,7 @@
 
 :root {
   --azul: #004add;
-  --amarelo: #feea3a;
+  --amarelo: #fbe51f;
   --branco: #eeeeee;
   --preto: #303030;
   --preto-translucido: #30303050;
@@ -35,4 +35,12 @@ li {
 
 .esquerda {
   margin-right: auto;
+}
+
+textarea::-webkit-scrollbar {
+  width: 1px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  display: none;
 }

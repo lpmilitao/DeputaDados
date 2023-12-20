@@ -19,6 +19,7 @@ export function useListarDeputados() {
       toast.error('Ocorreu um erro ao buscar os deputados.', {
         position: toast.POSITION.BOTTOM_CENTER,
       });
+      setDeputados(null);
     } finally {
       setLoading(false);
     }

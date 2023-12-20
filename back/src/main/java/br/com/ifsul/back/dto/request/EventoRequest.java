@@ -9,4 +9,7 @@ public class EventoRequest {
 
     @NotBlank
     private String nome;
+
+    @NotBlank
+    private String descricao;
 }

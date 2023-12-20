@@ -67,6 +67,7 @@ public class EventoService {
                 .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Evento não encontrado."));
 
         evento.setNome(request.getNome());
+        evento.setDescricao(request.getDescricao());
 
         eventoRepository.save(evento);
     }
