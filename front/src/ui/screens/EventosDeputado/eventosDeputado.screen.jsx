@@ -33,13 +33,14 @@ export function EventosDeputado() {
 
   useEffect(() => {
     buscarPorDeputado(deputadoId);
+    console.log(eventos);
   }, [reload]);
 
   return !isLoadingL && !isLoadingA ? (
-    <>
-      <Header at={'Eventos de um deputado'} voltar={true} />
+    <section>
       <ToastContainer />
-      {eventos ? (
+      <Header at={'Eventos de um deputado'} voltar={true} />
+      {eventos.length > 0 ? (
         <section className='lista-container eventos-deputado-container'>
           {eventos.map((evento) => {
             return (
@@ -68,7 +69,7 @@ export function EventosDeputado() {
       ) : (
         <Vazio />
       )}
-    </>
+    </section>
   ) : (
     <Loader />
   );
